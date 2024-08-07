@@ -15,11 +15,11 @@ class PlayerScene extends Phaser.Scene {
 
     preload() {
         // Load sprite sheet
-        this.load.spritesheet('player', `${location.protocol+"//"+location.host+location.pathname}/player_test.png`, {
+        this.load.spritesheet('player', `${location.protocol+"//"+location.host+location.pathname}player_test.png`, {
             frameWidth: 64, // Width of each frame
             frameHeight: 64 // Height of each frame
         });
-        this.load.image('ground', `${location.protocol+"//"+location.host+location.pathname}/ground.png`)  
+        this.load.image('ground', `${location.protocol+"//"+location.host+location.pathname}ground.png`)  
     }
 
     create() {
@@ -46,7 +46,6 @@ class PlayerScene extends Phaser.Scene {
             frameRate: 10,
             repeat: -1
         });
-
         this.anims.create({
             key: 'walk-left',
             frames: this.anims.generateFrameNumbers('player', { start: 9, end: 15 }), // Use the same frames for left movement
@@ -78,7 +77,7 @@ class PlayerScene extends Phaser.Scene {
             .setBounce(0.2)
             .setCollideWorldBounds(true)
         this.physics.add.collider(player, this.ground)
-        
+
         player.setDisplaySize(64, 64)
         player.lastMovementDirection = 'right' // Initialize default direction
         player.setFrame(9) // Set initial frame
