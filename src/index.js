@@ -1,4 +1,6 @@
 import Phaser from 'phaser'
+import playerImg from '../public/player_test.png'
+import groundImg from '../public/ground.png'
 
 const DASH_COOLDOWN = 2000 // Cooldown duration in milliseconds
 const DASH_DISTANCE = 200 // Distance of the dash
@@ -6,6 +8,11 @@ const DASH_DURATION = 300 // Duration of the dash in milliseconds
 const TWEEN_DURATION = 500 // Duration of the tween in milliseconds
 const JUMP_VELOCITY = -330 // Jump velocity
 const PUNCH_RANGE = 50 // Range of the punch
+
+console.log({
+  playerImg,
+  groundImg
+})
 
 class PlayerScene extends Phaser.Scene {
     constructor() {
@@ -15,11 +22,11 @@ class PlayerScene extends Phaser.Scene {
 
     preload() {
         // Load sprite sheet
-        this.load.spritesheet('player', `${location.protocol+"//"+location.host+location.pathname}player_test.png`, {
+        this.load.spritesheet('player', playerImg, {
             frameWidth: 64, // Width of each frame
             frameHeight: 64 // Height of each frame
         });
-        this.load.image('ground', `${location.protocol+"//"+location.host+location.pathname}ground.png`)  
+        this.load.image('ground', groundImg)  
     }
 
     create() {
